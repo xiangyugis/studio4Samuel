@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="discription" content="Samuel Portfolio page">
+<meta name="keywords" content="Xiangyu Wen, Samuel Wen, GIS developer">
+<meta name="author" content="Samuel Wen">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+<script src="rodents.js"></script>
+<script src="neighborhoods.js"></script>
+<title>Gis Portfolio</title>
+ <link href="demo.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <div id="logo"><a href="index.html"><img id="logoImg" src="Logo1.png" alt=""/></a></div>
+    <ul class="topNav">
+      <li class="navList"><a href="https://drive.google.com/file/d/1FxjjuwbnB8rw6-ccufOoaD9DuF1tnE1n/view?usp=sharing" target="_blank">CV</a></li>
+      <li class="navList"><a href="about.html">About</a></li>
+      <li class="navList"><a href="index.html">Work</a></li>
+    </ul>
+  </header>
+
+  <h1 id="mapTitle">Rats<h1>
+    <div id="mapFirstGeoJ" style="width: 80%; height: 600px; justify-content: center;"></div>
+      <script>
+      var mapGeoJSON = L.map('mapFirstGeoJ').setView([42.35, -71.08],13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	        maxZoom: 19,
+	        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(mapGeoJSON);
+
+      function createCustomIcon (feature, latlng) {
+      let myIcon = L.icon({
+        iconUrl: 'rat.gif',
+        iconSize:     [25, 25], // width and height of the image in pixels
+        iconAnchor:   [12, 12], // point of the icon which will correspond to marker's location
+        popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+      })
+        return L.marker(latlng, { icon: myIcon })
+      }
+
+    // create an options object that specifies which function will called on each feature
+      let myLayerOptions = {
+        pointToLayer: createCustomIcon
+      }
+
+
+        // create the GeoJSON layer
+        L.geoJSON(myGeoJSON, myLayerOptions).addTo(mapGeoJSON);
+        L.geoJSON(hooddata, {
+          style: function(feature){
+            var fillColor,
+                density = feature.properties.density;
+            if ( density > 80 ) fillColor = "#006837";
+            else if ( density > 40 ) fillColor = "#31a354";
+            else if ( density > 20 ) fillColor = "#78c679";
+            else if ( density > 10 ) fillColor = "#c2e699";
+            else if ( density > 0 ) fillColor = "#ffffcc";
+            else fillColor = "#f7f7f7";  // no data
+            return { color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .6 };
+          },
+          onEachFeature: function( feature, layer ){
+            layer.bindPopup( "<strong>" + feature.properties.Name + "</strong><br/>" + feature.properties.density + " rats per square mile" )
+          }
+        }  ).addTo(mapGeoJSON);
+
+        var clusters = L.markerClusterGroup();
+        clusters.addLayer(rodents);
+        mapGeoJSON.addLayer(clusters);
+
+
+      </script>
+  <footer>
+  		<h3 id="contact"><a href="mailto:wenxiangyucc@outlook.com" target="_blank">Email </a>| <a href="https://github.com/xiangyugis" target="_blank">Github </a>| <a href="https://www.linkedin.com/in/xiangyu-wen-8ba194155/" target="_blank">LinkedIn</a></h3>
+  	</footer>
+
+</body>
+</html>
