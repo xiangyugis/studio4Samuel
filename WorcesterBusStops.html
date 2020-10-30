@@ -19,6 +19,7 @@
 
   <style>
     #map{ height: 100% }
+
   </style>
 </head>
 <body>
@@ -40,7 +41,7 @@
 
     $.getJSON("data/BusStops.geojson",function(data){
       var busIcon = L.icon({
-        iconUrl: 'Bus_11.png',
+        iconUrl: 'images/Bus_11.png',
         iconSize: [60,50]
       });
       // add GeoJSON layer to the map once the file is loaded
