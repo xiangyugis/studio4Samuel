@@ -24,57 +24,40 @@
       <li class="navList"><a href="index.html">Work</a></li>
     </ul>
   </header>
+        <div id="narrative">
+        <h1 id="mapTitle">Rats<h1>
+          <table style = "width:800">
 
-  <h1 id="mapTitle">Rats<h1>
-    <div id="mapFirstGeoJ" style="width: 80%; height: 600px; justify-content: center;"></div>
-      <script>
-      var mapGeoJSON = L.map('mapFirstGeoJ').setView([42.35, -71.08],13);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	        maxZoom: 19,
-	        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(mapGeoJSON);
+            <tr>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/leaflet_map.html" style="border:none;" height="300" width="300"></iframe><br>
+                  <p2> <a href="https://shadrock.github.io/first-leaflet-map/leaflet_map.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/leaflet_map.html">Get the code.</a></p></th>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/more_layers.html" style="border:none;" height="300" width="300"></iframe><br>
+                  <p2> <a href="https://shadrock.github.io/first-leaflet-map/more_layers.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/more_layers.html">Get the code.</a></p></th>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/map_own_data.html" style="border:none;" height="300" width="300"></iframe><br>
+                  <p2> <a href="https://shadrock.github.io/first-leaflet-map/map_own_data.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/map_own_data.html">Get the code.</a></p></th>
+            </tr>
+            <tr>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/add_style.html" style="border:none;" height="300" width="300"></iframe><br>
+                <p2> <a href="https://shadrock.github.io/first-leaflet-map/add_style.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/add_style.html">Get the code.</a></p></th>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/interaction.html" style="border:none;" height="300" width="300"></iframe><br>
+                <p2> <a href="https://shadrock.github.io/first-leaflet-map/interaction.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/interaction.html">Get the code.</a></p></th>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/polygons.html" style="border:none;" height="300" width="300"></iframe><br>
+                <p2> <a href="https://shadrock.github.io/first-leaflet-map/polygons.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/polygons.html">Get the code.</a></p></th>
+            </tr>
+            <tr>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/plug_then.html" style="border:none;" height="300" width="300"></iframe><br>
+                <p2> <a href="https://shadrock.github.io/first-leaflet-map/plug_then.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/plug_then.html">Get the code.</a></p></th>
+              <th><iframe src="https://shadrock.github.io/first-leaflet-map/more_visual.html" style="border:none;" height="300" width="300"></iframe><br>
+                <p2> <a href="https://shadrock.github.io/first-leaflet-map/more_visual.html">Full-sized map</a>. | <a href="https://github.com/Shadrock/first-leaflet-map/blob/master/more_visual.html">Get the code.</a></p></th>
+            </tr>
 
-      function createCustomIcon (feature, latlng) {
-      let myIcon = L.icon({
-        iconUrl: 'rat.gif',
-        iconSize:     [25, 25], // width and height of the image in pixels
-        iconAnchor:   [12, 12], // point of the icon which will correspond to marker's location
-        popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-      })
-        return L.marker(latlng, { icon: myIcon })
-      }
-
-    // create an options object that specifies which function will called on each feature
-      let myLayerOptions = {
-        pointToLayer: createCustomIcon
-      }
-
-
-        // create the GeoJSON layer
-        L.geoJSON(myGeoJSON, myLayerOptions).addTo(mapGeoJSON);
-        L.geoJSON(hooddata, {
-          style: function(feature){
-            var fillColor,
-                density = feature.properties.density;
-            if ( density > 80 ) fillColor = "#006837";
-            else if ( density > 40 ) fillColor = "#31a354";
-            else if ( density > 20 ) fillColor = "#78c679";
-            else if ( density > 10 ) fillColor = "#c2e699";
-            else if ( density > 0 ) fillColor = "#ffffcc";
-            else fillColor = "#f7f7f7";  // no data
-            return { color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .6 };
-          },
-          onEachFeature: function( feature, layer ){
-            layer.bindPopup( "<strong>" + feature.properties.Name + "</strong><br/>" + feature.properties.density + " rats per square mile" )
-          }
-        }  ).addTo(mapGeoJSON);
-
-        var clusters = L.markerClusterGroup();
-        clusters.addLayer(rodents);
-        mapGeoJSON.addLayer(clusters);
+          </table>
 
 
-      </script>
+
+
+        </div>
+
   <footer>
   		<h3 id="contact"><a href="mailto:wenxiangyucc@outlook.com" target="_blank">Email </a>| <a href="https://github.com/xiangyugis" target="_blank">Github </a>| <a href="https://www.linkedin.com/in/xiangyu-wen-8ba194155/" target="_blank">LinkedIn</a></h3>
   	</footer>
