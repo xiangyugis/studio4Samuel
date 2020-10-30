@@ -1,0 +1,121 @@
+body{
+  width: 90%;
+  font-family: Arial;
+  margin: auto;
+  background-color: #FAFAFA;
+}
+#logo{
+  width: 20%;
+  float: left;
+  padding-top: 0.5em;
+}
+#logoImg{
+  width: 15%;
+  height: auto;
+}
+.topNav{
+  flex-basis: 48%;
+}
+#color1{
+  color: #FF9700;
+}
+#intro{
+  text-align: center;
+  font-size: 1.5em;
+}
+.navList{
+  padding-top: 0.5em;
+  padding-left: 20px;
+  float: right;
+  display: inline;
+}
+.navList a{
+  text-decoration: none;
+}
+#currentList{
+  color: #FF9700;
+}
+a:hover{
+    text-decoration: none;
+    color: #FF9700;
+}
+a:active{
+    text-decoration: none;
+    color: #FF9700;
+}
+a:clicked{
+    text-decoration: none;
+    color: #FF9700;
+}
+#Welcome{
+  padding-top: 3em;
+  text-align: center;
+  font-size: 3em;
+}
+#workTitle{
+  text-align: center;
+  padding-top: 2em;
+}
+#mapTitle{
+  padding-top: 3em;
+  text-align: center;
+}
+.projectBox{
+  padding-top: 2em;
+  padding-bottom: 2em;
+  display: flex;
+
+}
+.leftProject{
+  float: left;
+  flex-basis: 48%;
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding:0 2em;
+}
+.rightProject{
+  float: right;
+  flex-basis: 48%;
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding: 0 2em;
+}
+.projectImg{
+  -webkit-box-shadow: 1px 1px 20px 10px #F1F1F1;
+  width: 100%;
+  height: auto;
+  box-shadow: 1px 1px 20px 10px #F1F1F1;
+  transition: transform .2s;
+}
+.projectImg:hover {
+  -ms-transform: scale(1.05); /* IE 9 */
+  -webkit-transform: scale(1.05); /* Safari 3-8 */
+  transform: scale(1.05);
+}
+footer{
+  text-align: center;
+}
+#contact,#contact a{
+  padding-top: 2em;
+  text-decoration: none;
+  font-weight: lighter;
+  color:black;
+}
+#contact a:hover{
+  color: #FF9700;
+}
+#lab5Map a{
+  text-align: center;
+}
+#mapFrame{
+  text-align: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+#mapFirstGeoJ{
+  height: 70%;
+  width :50%;
+  margin-left:auto;
+  margin-right:auto;
+}
